@@ -15,32 +15,33 @@ Além disso, também é essencial que, ao final do jogo, ela possa inserir quant
 
 */
 
-let carreira = parseInt(prompt(`qual carreira em programação você quer seguir?\n[1] Front-end\n[2] Back-end`));
-let listaDeTecnologias = [];
-
-if (carreira == 1){
-  let tecnologia = prompt(`Seguindo na carreira de fron-end qual das duas tecnologiass você quer aprender ReactJs ou VueJs?`);
-
-}
-else if (carreira == 2){
-  let tecnologia = prompt(`Seguindo na carreira de fron-end qual das duas linguagens você quer aprender Java ou C#?`);
-
-}
-
-let continuarCarreira = parseInt(prompt(`[1] Deseja seguir se especializando na área de ${carreira == 1 ? 'front-end' : carreira == 2 ? 'back-end' : 'não especificada'} \nou \n[2] seguir se desenvolvendo para se tornar Fullstack?`));
-
-if (continuarCarreira === 1){
-  alert(`Continuar se aperfeiçoando em uma area especifica é essencial para se tornar um bom proficional. \nBoa sorte na sua jornada!`)
-}else{
-  alert(`Optar por se tornar um dev full stack é uma escolha ousada, terá muitos desafios pela frente, mas não desista, todo sacrificio será recompensado. Boa sorte na sua jornada!`)
-}
+let carreira = parseInt(prompt(`Qual carreira em programação você deseja seguir?\n[1] Front-end\n[2] Back-end`));
 let tecnologiasParaConhecer = "";
-while (tecnologiasParaConhecer == 'parar' | tecnologiasParaConhecer == "só isso" | tecnologiasParaConhecer == "nenhuma"){
-  tecnologiasParaConhecer = prompt('tecnologias nas quais você gostaria de se especializar ou de conhecer? \nescreva "parar" para parar as perguntas')
-  if (tecnologiasParaConhecer != 'parar'){
-    listaDeTecnologias.push(tecnologiasParaConhecer)
-  }
-  listaDeTecnologias.push(tecnologiasParaConhecer)
+let listaDeTecnologias = [];
+let tecnologia = "";
+
+if (carreira === 1) {
+  tecnologia = prompt(`Seguindo na carreira de front-end, qual das duas tecnologias você deseja aprender? ReactJs ou VueJs?`);
+} else if (carreira === 2) {
+  tecnologia = prompt(`Seguindo na carreira de back-end, qual das duas linguagens você deseja aprender? Java ou C#?`);
 }
 
-alert("tecnologias que você quer aprender", listaDeTecnologias)
+let continuarCarreira = parseInt(prompt(`[1] Você deseja continuar se especializando na área de ${carreira === 1 ? 'front-end' : 'back-end'}\nou\n[2] Seguir se desenvolvendo para se tornar Fullstack?`));
+
+if (continuarCarreira === 1) {
+  alert(`Continuar se aperfeiçoando em uma área específica é essencial para se tornar um bom profissional. \nBoa sorte na sua jornada!`);
+} else {
+  alert(`Optar por se tornar um desenvolvedor full-stack é uma escolha ousada. Você terá muitos desafios pela frente, mas não desista, todo sacrifício será recompensado. Boa sorte na sua jornada!`);
+}
+
+while (true) {
+  tecnologiasParaConhecer = prompt('Quais tecnologias você gostaria de se especializar ou conhecer?\nDigite "parar" para interromper as perguntas.');
+  
+  if (tecnologiasParaConhecer === 'parar') {
+    break; 
+  }
+
+  listaDeTecnologias.push(tecnologiasParaConhecer);
+}
+
+alert(`Tecnologias que você deseja aprender: \n${listaDeTecnologias.join(', ')}`);
